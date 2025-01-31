@@ -1,11 +1,11 @@
 import React from 'react';
 
-function GuessList() {
-  
+function GuessList({guessList}) {
+
   return <div class="guess-results">
-  <p class="guess">FIRST</p>
-  <p class="guess">GUESS</p>
-</div>;
+  {guessList?.map((guess, i) => <p key={i}>{guess.toUpperCase()}</p>)}
+
+</div>; 
 }
 
 export default GuessList;

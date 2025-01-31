@@ -1,25 +1,30 @@
 import React from 'react';
 
-function GuessInput() {
+function GuessInput({setGuessList, guessList} ) {
 
-  //{guess, setGuess}
+    const [guess, setGuess] = React.useState('');
+    const [error, setError] = React.useState('');
 
-  const [guess, setGuess] = React.useState('');
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        //  console.log({guess})
+        if (guessList.includes(guess)) {
+          setError('You already tried this word!: ' + guess)
+          return;
+        }
+        setError('');
+        setGuessList([...guessList, guess]);
+    }
 
-   const handleSubmit = (e) => {
-       e.preventDefault();
-       console.log({guess})
-       setGuess('')
-   }
-
-   const handleChange = (e) => {
-    const upperCaseInput = e.target.value.toUpperCase()
-    setGuess(upperCaseInput)
-  };
+    const handleChange = (e) => {
+      const upperCaseInput = e.target.value.toUpperCase()
+      setGuess(upperCaseInput)
+    };
 
 
     return (
         <div>
+            {error && <p className="error-message">{error}</p>}
             <form className="guess-input-wrapper" onSubmit={handleSubmit}>
                 <label htmlFor="guess-input">Enter guess:</label>
                 <input 

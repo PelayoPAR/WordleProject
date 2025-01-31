@@ -10,16 +10,14 @@ const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
 console.info({ answer });
 
-// const [guess, setGuess] = React.useState('');
-
 function Game() {
+
+const [guessList, setGuessList] = React.useState([])
+
   return <>
-  <GuessList></GuessList>
-    <GuessInput ></GuessInput>
+  <GuessList guessList={guessList}></GuessList>
+    <GuessInput guessList={guessList} setGuessList={setGuessList}></GuessInput>
   </>;
 }
 
 export default Game;
-
-
-// guess={guess} setGuess={setGuess}
