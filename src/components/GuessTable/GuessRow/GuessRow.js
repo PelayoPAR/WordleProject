@@ -1,12 +1,13 @@
 import React from 'react';
+import { range } from '../../../utils';
 
-function GuessRow({guess}) {
-  const letters = guess? guess.toUpperCase().split("") : Array(5).fill("");
-
+function GuessRow({value}) {
   return (
     <p className="guess">
-    {letters.map((letter, i) => (
-      <span key={i} className="cell">{letter}</span>
+    {range(5).map((num) => (
+      <span key={num} className="cell">
+      {value ? value[num] : undefined}
+      </span>
     ))}
     </p>
   );
