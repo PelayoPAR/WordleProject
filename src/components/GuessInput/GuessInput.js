@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput({setGuessList, guessList} ) {
+function GuessInput({setGuessWord, guessWord} ) {
 
     const [guess, setGuess] = React.useState('');
     const [error, setError] = React.useState('');
@@ -8,12 +8,12 @@ function GuessInput({setGuessList, guessList} ) {
     const handleSubmit = (e) => {
         e.preventDefault();
         //  console.log({guess})
-        if (guessList.includes(guess)) {
+        if (guessWord.includes(guess)) {
           setError('You already tried this word!: ' + guess)
           return;
         }
         setError('');
-        setGuessList([...guessList, guess]);
+        setGuessWord([...guessWord, guess]);
     }
 
     const handleChange = (e) => {
