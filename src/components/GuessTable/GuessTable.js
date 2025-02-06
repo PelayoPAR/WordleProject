@@ -4,6 +4,7 @@ import GuessRow from './GuessRow';
 import { range } from '../../utils';
 
 function GuessTable({guesses, answer}) {
+
   return (
   <div className="guess-results">
     {range(NUM_OF_GUESSES_ALLOWED).map((num) => (
